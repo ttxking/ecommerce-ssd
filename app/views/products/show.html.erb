@@ -15,5 +15,5 @@
   <%= @product.stock %>
 </p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Edit', edit_product_path(@product), class: "create" %> |
+<%= link_to 'Back', products_path, class: "create"%>
