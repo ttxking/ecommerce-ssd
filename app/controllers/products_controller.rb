@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
 
+
+
   # GET /products or /products.json
   def index
     @products = Product.all
@@ -14,6 +16,10 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+
+    @category = Category.all
+
+    @product_category = @product.product_categories.build
   end
 
   # GET /products/1/edit
@@ -23,6 +29,12 @@ class ProductsController < ApplicationController
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)
+
+    params[:categories][:id].each do |category|
+      if !category.empty?
+        @product.product_categories.build(:category_id => category)
+      end
+    end
 
     respond_to do |format|
       if @product.save

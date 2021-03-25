@@ -11,12 +11,18 @@
             <%= link_to "Product",products_path, class: "nav-link navbarelement" %>
         </li>
         <li class="nav-item active">
+            <%= link_to "Category",categories_path, class: "nav-link navbarelement" %>
+        </li>
+        <li class="nav-item active">
             <%= link_to "Signout",destroy_user_session_path, method: :delete, class: "nav-link navbarelement" %>
         </li>
         <span class="navbar-text navbarelement" style="color:green"> Hello <%= current_user.email %> </span>
       <% else %>
       <li class="nav-item active">
         <%= link_to "Product",products_path, class: "nav-link navbarelement" %>
+      </li>
+      <li class="nav-item active">
+            <%= link_to "Category",categories_path, class: "nav-link navbarelement" %>
       </li>
       <li class="nav-item active">
         <%= link_to "Login",new_user_session_path, class: "nav-link navbarelement" %>

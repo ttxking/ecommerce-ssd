@@ -26,6 +26,14 @@
     <%= form.number_field :stock %>
   </div>
 
+  
+  <%= fields_for(@product_category) do |pc| %>
+    <div class ="field ">
+      <%= pc.label "Categories" %></br>
+      <%= collection_select(:categories, :id, Category.all, :id, :name, {}, {:multiple => true})%>
+  </div>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>
