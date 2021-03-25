@@ -49,6 +49,10 @@ class ProductsController < ApplicationController
 
   # PATCH/PUT /products/1 or /products/1.json
   def update
+    params[:categories][:id].each do |category|
+        @product.product_categories.update(:category_id => category)
+    end
+
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: "Product was successfully updated." }

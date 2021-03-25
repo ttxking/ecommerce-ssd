@@ -3,6 +3,6 @@ class Product < ApplicationRecord
     validates :description, presence: true
     validates :stock, numericality: {greater_than_or_equal_to: 0}
 
-    has_many :product_categories
+    has_many :product_categories, :dependent => :destroy
     has_many :categories, through: :product_categories
 end
