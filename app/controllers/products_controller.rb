@@ -49,8 +49,11 @@ class ProductsController < ApplicationController
 
   # PATCH/PUT /products/1 or /products/1.json
   def update
+    @product.product_categories.clear
     params[:categories][:id].each do |category|
-        @product.product_categories.update(:category_id => category)
+      if !category.empty?
+          @product.product_categories.build(:category_id => category)
+      end
     end
 
     respond_to do |format|
