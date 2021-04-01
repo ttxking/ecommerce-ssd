@@ -26,13 +26,17 @@
     <%= form.number_field :stock %>
   </div>
 
-  
-  <%= fields_for(@product_category) do |pc| %>
-    <div class ="field ">
-      <%= pc.label "Categories" %></br>
-      <%= collection_select(:categories, :id, Category.all, :id, :name, {}, {:multiple => true})%>
+  <div class ="field ">
+      <%= form.label "Categories" %></br>
+      <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |b| %>
+        <%= b.label(class:"label-checkbox") { b.check_box + " " + b.text } %>
+      <% end %>
   </div>
-  <% end %>
+
+  <div class="field">
+      <%= form.label "Status" %></br>
+      <%= form.select(:status, Product.statuses.keys.map {|status| [status.titleize,status]}) %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>
