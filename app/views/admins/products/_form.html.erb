@@ -1,0 +1,76 @@
+<%= form_with model: [:admins,product] do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_area :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stock %>
+    <%= form.number_field :stock %>
+  </div>
+
+  <div class ="field ">
+      <%= form.label "Categories" %></br>
+      <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |b| %>
+        <%= b.label(class:"label-checkbox") { b.check_box + " " + b.text } %>
+      <% end %>
+  </div>
+
+  <div class="field">
+      <%= form.label "Status" %></br>
+      <%= form.select(:status, Product.statuses.keys.map {|status| [status.titleize,status]}) %>
+  </div>
+
+   <div class="field">
+      <%= form.label "Primary Image" %></br>
+      <%= form.file_field :primary_image %>
+  </div>
+
+  <p>
+    <% if product.primary_image.attached? %>
+         <div class="d-flex align-items-center mr-5">
+            <%= image_tag product.primary_image, class: "display_image" %> 
+            <%= link_to 'Remove',  delete_image_admins_product_path(product.primary_image.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger mt-3" %>
+        </div>
+    <% end %>
+  </p>
+
+   <div class="field">
+      <%= form.label "Supporting Image" %></br>
+      <%= form.file_field :images, multiple: true %>
+  </div>
+
+  <p>
+    <% if product.images.attached? %>
+      <div class="d-flex align-items-center">
+        <% product.images.each do |image| %>
+            <div class="d-flex flex-column align-items-center mr-5">
+              <%= image_tag image, class: "display_image" %>
+              <%= link_to 'Remove',  delete_image_admins_product_path(image.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger mt-3" %>
+            </div>
+        <% end %>
+      </div>
+    <% end %>
+  </p>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
