@@ -1,15 +1,111 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body {
+  background-color: #fff;
+  color: #333;
+  margin: 33px; }
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px; }
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px; }
+
+
+label {
+    display: block; }
+
+a {
+  color: white; }
+
+a:visited {
+  color: #666; 
+}
+
+a:hover {
+  color: yellowgreen;
+}
+
+th {
+  padding-bottom: 5px; 
+  background-color: white; 
+  border-bottom: 1px solid; 
+}
+
+td {
+  padding: 1% 5px 7px; }
+
+div.field,
+div.actions {
+  margin-bottom: 10px; }
+
+#notice {
+  color: green; }
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table; }
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0; }
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff; }
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square; }
+
+table {
+  border-bottom: 1px solid 
+} 
+
+.navbarelement { 
+  color: black; 
+} 
+
+.create { 
+  color: black; 
+} 
+
+.tablename { 
+  padding-top: 1%; 
+  padding-bottom: 1%; 
+  font-size: 2em; 
+} 
+
+td .btn-sm { 
+  border: 1px solid black; 
+  display: inline-block; 
+  color: white;
+}
+
+.image {
+  display: block; 
+  width: 164px; 
+  height: 164px;
+  object-fit: cover;
+}
+
+.display_image {
+  width: 164px; 
+  height: 164px;
+  object-fit: cover;
+}
+
+a.details_button:visited { 
+  color: white;
+}

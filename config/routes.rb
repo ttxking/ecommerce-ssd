@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :categories
   devise_for :users
-  root 'admins/products#index'
+  root 'homes#index'
+
+  resources :homes, only: [:index, :show]
 
   namespace :admins do
     resources :products do 

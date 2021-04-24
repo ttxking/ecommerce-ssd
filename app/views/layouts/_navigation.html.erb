@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
-  <a class="navbar-brand navbarelement" href="/admins/products">Ecommerce</a>
+  <a class="navbar-brand navbarelement" href="/">Ecommerce</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -19,10 +19,10 @@
         <span class="navbar-text navbarelement" style="color:green"> Hello <%= current_user.email %> </span>
       <% else %>
       <li class="nav-item active">
-        <%= link_to "Product",admins_products_path, class: "nav-link navbarelement" %>
+        <%= link_to "Product Management",admins_products_path, class: "nav-link navbarelement" %>
       </li>
       <li class="nav-item active">
-            <%= link_to "Category",categories_path, class: "nav-link navbarelement" %>
+            <%= link_to "Category Management",categories_path, class: "nav-link navbarelement" %>
       </li>
       <li class="nav-item active">
         <%= link_to "Login",new_user_session_path, class: "nav-link navbarelement" %>

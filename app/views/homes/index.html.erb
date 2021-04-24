@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col">
+        <span class="float-right">
+            <%= link_to 'Go to admin section', admins_products_path %>
+        </span>
+    </div>
+</div>
+<h1> Welcome to our Shop </h1>
+<% @products.each do |product| %>
+    <div class="row mt-2">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-3">
+                            <% if product.primary_image.attached? %>
+                                <%= image_tag product.primary_image, width: '100%' %>
+                            <% end %>
+                        </div>
+                        <div class="col-9"> 
+                            <div class="row">
+                                <div class="col">
+                                    <h1><%= product.title %></h1> 
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h6>Description: <%= product.description %></h6>
+                                </div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col">
+                                   <h6> Stock: <%= product.stock %> </h6>  
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col">
+                                         <%= link_to 'Details', home_path(product),  class: "btn btn-primary details_button"%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>
