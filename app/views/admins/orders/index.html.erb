@@ -1,0 +1,21 @@
+<table class="table table-borderless">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Product</th>
+      <th>Amounts</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.name %></td>
+        <td><%= order.address %></td>
+        <td><%= order.product %></td>
+        <td><%= order.amount %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -5,12 +5,15 @@ Rails.application.routes.draw do
 
   resources :homes, only: [:index, :show]
 
+  resources :orders, only: [:new, :create]
+
   namespace :admins do
     resources :products do 
       member do
         delete :delete_image
       end
     end
+    resources :orders, only: [:index]
     namespace :products do
       post 'csv_upload'
     end
